@@ -1,0 +1,29 @@
+# List deployments:
+kubectl get deploy
+
+# Update a deployment with a manifest file:
+kubectl apply -f nginx-deploy.yaml
+
+# Scale a deployment “nginx-deploy” to 3 replicas:
+kubectl scale deploy/nginx-deploy --replicas=3
+
+# Watch update status for deployment “nginx-deploy”:
+kubectl rollout status deploy/nginx-deploy
+
+# Pause deployment on “nginx-deploy”:
+kubectl rollout pause deploy/nginx-deploy
+
+# Resume deployment on “nginx-deploy”:
+kubectl rollout resume deploy/nginx-deploy
+
+# View rollout history on “nginx-deploy”:
+kubectl rollout history deploy/nginx-deploy
+
+# Undo most recent update on “nginx-deploy”:
+kubectl rollout undo deploy/nginx-deploy
+
+# Rollback to specific revision on “nginx-deploy”:
+kubectl rollout undo deploy/nginx-deploy --to-revision=1
+
+# update image of nginx deployment
+kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1
